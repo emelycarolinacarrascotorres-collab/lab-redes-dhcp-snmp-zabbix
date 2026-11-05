@@ -533,18 +533,6 @@ Durante el laboratorio se resolvieron incidentes reales, todos documentados con 
 
 ---
 
-## 📝 Pendientes y limitaciones
-
-* 🎬 **Video demostrativo:** falta publicarlo.
-* **Formulario *Crear equipo* de Zabbix:** sin captura.
-* **Puertos de cada enlace:** falta `show cdp neighbors`.
-* **Uptime en Zabbix:** no está en las capturas, por lo que no se compara con `snmpget`.
-* **`R1.localdomain`:** el cambio de `R1` a `R1.localdomain` en `sysName` no está explicado.
-
-Lista completa: [`docs/05-pendientes-y-limitaciones.md`](docs/05-pendientes-y-limitaciones.md).
-
----
-
 ## 🗂️ Estructura del repositorio
 
 ```text
