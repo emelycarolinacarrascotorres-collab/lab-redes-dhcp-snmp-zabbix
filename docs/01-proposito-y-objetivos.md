@@ -23,9 +23,3 @@ La práctica reproduce, a escala de laboratorio, el flujo básico de monitoreo d
 | 6 | Verificar en Zabbix los datos SNMP | Pantalla *Últimos datos* de R1, SW1 y SW2 |
 | 7 | Documentar el proyecto de forma profesional | Este repositorio |
 
-## Alcance y limitaciones
-
-* El laboratorio es **virtual**: IOSv-L2 para los switches y Cisco 7200 para el router.
-* SNMP se usa solo en **lectura**. No se configuran *traps*, SNMPv3 ni ACL de acceso SNMP.
-* Los valores de la comunidad SNMP y de la base de datos son **valores de laboratorio**; no deben reutilizarse en producción.
-* Lo que no se pudo documentar está listado en [05-pendientes-y-limitaciones.md](05-pendientes-y-limitaciones.md).
