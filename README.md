@@ -46,9 +46,7 @@
 12. [Resultado frente a los requisitos](#-resultado-frente-a-los-requisitos)
 13. [Scripts](#-scripts)
 14. [Running-configs](#-running-configs)
-15. [Problemas encontrados](#-problemas-encontrados)
-16. [Pendientes y limitaciones](#-pendientes-y-limitaciones)
-17. [Estructura del repositorio](#-estructura-del-repositorio)
+15. [Estructura del repositorio](#-estructura-del-repositorio)
 
 ---
 
