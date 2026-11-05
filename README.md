@@ -70,20 +70,6 @@ Detalle ampliado: [`docs/01-proposito-y-objetivos.md`](docs/01-proposito-y-objet
 
 ---
 
-## 🧪 Entorno del laboratorio
-
-| Componente | Detalle | Fuente de la evidencia |
-|---|---|---|
-| Emulación | GNS3 sobre VMware Workstation | Capturas de GNS3 y de VMware |
-| Router R1 | Cisco 7200, IOS 15.2(4)S6 | `sysDescr` por SNMP en Zabbix |
-| Switches SW1 y SW2 | IOSv-L2 (`vios_l2`), IOS 15.2 | `sysDescr` por SNMP en Zabbix |
-| Servidor | Ubuntu 24.04.3 LTS, hostname `emely` | `lsb_release -a` |
-| Monitoreo | Zabbix 7.0.32 (servidor y frontend) | Dashboard de Zabbix |
-| Servidor web | Apache 2.4.58 (Ubuntu) | Respuesta HTTP de `curl` |
-| PC de gestión | VM Windows 10 con navegador | Captura del Dashboard |
-
----
-
 ## 🗺️ Topología
 
 ### Captura de GNS3
