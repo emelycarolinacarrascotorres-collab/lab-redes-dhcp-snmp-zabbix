@@ -1,0 +1,16 @@
+! =====================================================================
+! SW1 - IOSv-L2 (IOS 15.2)
+! Reconstruido a partir de running-configs/SW1-running-config.txt
+! =====================================================================
+enable
+configure terminal
+hostname SW1
+no ip domain-lookup
+interface Vlan1
+ ip address 20.25.6.98 255.255.255.0
+ no shutdown
+ip default-gateway 20.25.6.97
+snmp-server community lectura0697 RO
+snmp-server location Lab-Santo-Domingo
+end
+write memory

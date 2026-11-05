@@ -1,0 +1,18 @@
+sequenceDiagram
+    autonumber
+    participant Z as 🖥️ Servidor Zabbix<br/>cliente DHCP · ens33
+    participant S as 🔀 SW1<br/>reenvía tramas L2
+    participant R as 🟦 R1 · Gi1/0<br/>servidor DHCP · pool LAN-0697
+
+    Note over R: Pool 20.25.6.0/24<br/>Excluidas: 20.25.6.1 a 20.25.6.99<br/>Gateway 20.25.6.97 · DNS 8.8.8.8 · lease 7 días
+
+    rect rgba(0, 102, 255, 0.12)
+    Z->>S: DHCPDISCOVER · broadcast
+    S->>R: trama de la LAN
+    R-->>Z: DHCPOFFER · IP libre del pool
+    end
+    rect rgba(124, 58, 237, 0.12)
+    Z->>R: DHCPREQUEST · acepta la oferta
+    R-->>Z: DHCPACK · IP + máscara + gateway + DNS + lease
+    end
+    Note over Z,R: Evidencia: systemd-networkd registra<br/>"DHCPv4 address 20.25.6.x/24, gateway 20.25.6.97 acquired from 20.25.6.97"

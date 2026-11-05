@@ -1,0 +1,25 @@
+flowchart TB
+    NET["☁️ NAT1 · Internet<br/>nodo de GNS3"]:::cloud
+    R1["🟦 R1 · Cisco 7200<br/>Fa0/0 WAN · cliente DHCP<br/>Gi1/0 LAN · 20.25.6.97/24<br/>Servidor DHCP + SNMP RO"]:::router
+    SW1["🔀 SW1 · IOSv-L2<br/>Vlan1 · 20.25.6.98/24"]:::switch
+    SW2["🔀 SW2 · IOSv-L2<br/>Vlan1 · 20.25.6.99/24"]:::switch
+    ZBX["🖥️ Servidor Zabbix<br/>Ubuntu 24.04 · ens33<br/>Cliente DHCP"]:::server
+    WIN["💻 Windows 10<br/>PC de gestión · navegador"]:::client
+
+    NET --- R1
+    R1 --- SW1
+    SW1 --- ZBX
+    SW1 --- SW2
+    SW2 --- WIN
+
+    ZBX -.->|"SNMP v2c · UDP 161"| R1
+    ZBX -.-> SW1
+    ZBX -.-> SW2
+
+    classDef router fill:#0066FF,stroke:#00E5FF,stroke-width:3px,color:#fff
+    classDef switch fill:#06B6D4,stroke:#0066FF,stroke-width:2px,color:#06283D
+    classDef server fill:#7C3AED,stroke:#C4B5FD,stroke-width:3px,color:#fff
+    classDef client fill:#10B981,stroke:#065F46,stroke-width:2px,color:#052E16
+    classDef cloud fill:#1E293B,stroke:#00E5FF,stroke-width:2px,color:#E2E8F0,stroke-dasharray:5 5
+    linkStyle 0,1,2,3,4 stroke:#0066FF,stroke-width:3px
+    linkStyle 5,6,7 stroke:#7C3AED,stroke-width:2px,stroke-dasharray:6 4

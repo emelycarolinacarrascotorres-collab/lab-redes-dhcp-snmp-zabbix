@@ -1,0 +1,30 @@
+flowchart LR
+    subgraph ZS["🖥️ Servidor Zabbix · Ubuntu 24.04"]
+        direction TB
+        POLL["Pollers SNMP<br/>zabbix-server 7.0.32"]:::zabbix
+        DB[("Base de datos<br/>MySQL / MariaDB")]:::db
+        WEB["Frontend web<br/>Apache + PHP"]:::zabbix
+        POLL --> DB --> WEB
+    end
+
+    subgraph LAN["🌐 LAN 20.25.6.0/24"]
+        R1["R1 · 20.25.6.97<br/>community RO"]:::router
+        SW1["SW1 · 20.25.6.98<br/>community RO"]:::switch
+        SW2["SW2 · 20.25.6.99<br/>community RO"]:::switch
+    end
+
+    ADM["💻 Windows 10<br/>navegador · HTTP 80"]:::client
+    SET["⛔ snmpset de prueba"]:::deny
+
+    POLL <-->|"SNMP v2c GET · UDP 161"| R1
+    POLL <--> SW1
+    POLL <--> SW2
+    WEB --> ADM
+    SET -. "noAccess" .-> R1
+
+    classDef zabbix fill:#7C3AED,stroke:#C4B5FD,stroke-width:2px,color:#fff
+    classDef db fill:#0066FF,stroke:#00E5FF,stroke-width:2px,color:#fff
+    classDef router fill:#0066FF,stroke:#00E5FF,stroke-width:3px,color:#fff
+    classDef switch fill:#06B6D4,stroke:#0066FF,stroke-width:2px,color:#06283D
+    classDef client fill:#10B981,stroke:#065F46,stroke-width:2px,color:#052E16
+    classDef deny fill:#EF4444,stroke:#7F1D1D,stroke-width:2px,color:#fff

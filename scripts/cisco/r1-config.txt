@@ -1,0 +1,42 @@
+! =====================================================================
+! R1 - Cisco 7200 (IOS 15.2(4)S6)
+! Comandos equivalentes al running-config de running-configs/R1-running-config.txt
+! Reconstruido a partir de ese running-config (no es una exportacion directa).
+! =====================================================================
+enable
+configure terminal
+hostname R1
+ip name-server 8.8.8.8
+!
+! --- WAN hacia el nodo NAT1 de GNS3 (necesaria para que el servidor instale paquetes)
+interface FastEthernet0/0
+ description WAN-INTERNET
+ ip address dhcp
+ ip nat outside
+ no shutdown
+!
+! --- LAN del laboratorio (direccionamiento derivado de la matricula 2025-0697)
+interface GigabitEthernet1/0
+ description LAN-2025-0697
+ ip address 20.25.6.97 255.255.255.0
+ ip nat inside
+ no shutdown
+!
+! --- Servidor DHCP de la LAN
+ip dhcp excluded-address 20.25.6.1 20.25.6.99
+ip dhcp pool LAN-0697
+ network 20.25.6.0 255.255.255.0
+ default-router 20.25.6.97
+ dns-server 8.8.8.8
+ lease 7
+!
+! --- NAT de la LAN hacia la WAN
+access-list 1 permit 20.25.6.0 0.0.0.255
+ip nat inside source list 1 interface FastEthernet0/0 overload
+!
+! --- SNMP de solo lectura (valores de laboratorio)
+snmp-server community lectura0697 RO
+snmp-server location Lab-Santo-Domingo
+snmp-server contact Matricula-2025-0697
+end
+write memory
