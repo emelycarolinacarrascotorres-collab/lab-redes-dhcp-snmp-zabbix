@@ -20,9 +20,7 @@
 
 ## 🎬 Video demostrativo
 
-<div align="center">
-
-[![Ver el video demostrativo](docs/assets/video-placeholder.svg)]((https://www.youtube.com/watch?v=EYMC0ZAujWE))
+https://www.youtube.com/watch?v=EYMC0ZAujWE
 
 </div>
 
