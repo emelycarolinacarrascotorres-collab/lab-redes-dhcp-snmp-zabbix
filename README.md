@@ -22,11 +22,10 @@
 
 <div align="center">
 
-[![Ver el video demostrativo](docs/assets/video-placeholder.svg)](https://youtu.be/REEMPLAZAR_ID_DEL_VIDEO)
+[![Ver el video demostrativo](docs/assets/video-placeholder.svg)]((https://www.youtube.com/watch?v=EYMC0ZAujWE))
 
 </div>
 
-> ⚠️ **PENDIENTE:** el video aún no está publicado. Reemplaza `REEMPLAZAR_ID_DEL_VIDEO` en este enlace por el identificador real. Instrucciones y guion en [`video/README.md`](video/README.md).
 
 ---
 
@@ -62,7 +61,7 @@ Montar una LAN virtual donde un **router Cisco** entrega direcciones por **DHCP*
 | 4 | Servidor Zabbix como cliente DHCP | ✅ |
 | 5 | Verificar en Zabbix los datos SNMP del router y los switches | ✅ |
 | 6 | Documentación con imágenes, diagramas, scripts y running-configs | ✅ |
-| 7 | Video demostrativo | ⏳ pendiente |
+| 7 | Video demostrativo | ✅ |
 
 Detalle ampliado: [`docs/01-proposito-y-objetivos.md`](docs/01-proposito-y-objetivos.md).
 
